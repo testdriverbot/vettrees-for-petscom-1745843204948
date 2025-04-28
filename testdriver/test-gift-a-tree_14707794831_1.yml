@@ -1,0 +1,13 @@
+version: 4.2.29
+session: 680f7752390031a3fc2616e7
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Click "Gift a Tree" button.
+    commands:
+      - command: hover-text
+        text: Gift a Tree
+        description: button in the Monthly Tree Gifting section
+        action: click
