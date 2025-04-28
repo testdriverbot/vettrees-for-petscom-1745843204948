@@ -1,0 +1,21 @@
+version: 4.2.29
+session: 680f775d390031a3fc2616ec
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Click "Discuss API Connection to Your Software".
+    commands:
+      - command: hover-text
+        text: Discuss API Connection to Your Software
+        description: button in the Quick Actions section
+        action: click
+  - prompt: Assert that it redirects to the appropriate discussion page or form.
+    commands:
+      - command: assert
+        expect: the "Request API Integration" form is visible
+  - prompt: Ensure no errors on the resulting page.
+    commands:
+      - command: assert
+        expect: the "Request API Integration" form is displayed without errors
