@@ -1,0 +1,13 @@
+version: 4.2.29
+session: 680f775dd6ee190249814d91
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Assert that "Monthly Credits" shows a value.
+    commands:
+      - command: assert
+        expect: Monthly Credits shows a value of 10
+  - prompt: Assert that "Remaining Trees" count is accurate.
+    commands: []
