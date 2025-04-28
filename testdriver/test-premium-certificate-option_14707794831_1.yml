@@ -1,0 +1,17 @@
+version: 4.2.29
+session: 680f7766d6ee190249814d99
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Click on "Premium Printed Certificate" option.
+    commands:
+      - command: scroll-until-text
+        text: Premium Printed Certificate
+        direction: down
+        method: keyboard
+      - command: hover-text
+        text: Premium Printed Certificate
+        description: premium printed certificate option
+        action: click
