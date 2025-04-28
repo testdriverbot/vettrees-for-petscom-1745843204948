@@ -1,0 +1,27 @@
+version: 4.2.29
+session: 680f775dd6ee190249814d93
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Click "Billing Summary" dropdown.
+    commands:
+      - command: hover-text
+        text: Billing Summary
+        description: billing summary dropdown below the Legacy Plan section
+        action: click
+  - prompt: Assert the dropdown expands.
+    commands:
+      - command: assert
+        expect: >-
+          the "Billing Summary" dropdown is expanded with detailed billing
+          information visible
+  - prompt: Verify that the billing information is correct and error-free.
+    commands:
+      - command: assert
+        expect: >-
+          the billing summary shows "Legacy Plan (20 trees) $310.00", "Free Tree
+          Credits Used (10 of 10) $0.00", "Premium Certificates $12.00", "US
+          Region Planting $5.00", "Extra Trees $21.00", "Total This Month
+          $348.00"
