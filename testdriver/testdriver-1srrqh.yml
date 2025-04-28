@@ -1,0 +1,27 @@
+version: 4.2.29
+session: 680f7539390031a3fc2616d5
+steps:
+  - prompt: login with username "happypaws@example.com" and password "HappyPaws2025!"
+    commands:
+      - command: hover-text
+        text: Login
+        description: login button in the top right corner
+        action: click
+  - prompt: login with username "happypaws@example.com" and password "HappyPaws2025!"
+    commands:
+      - command: hover-text
+        text: Email Address
+        description: email input label
+        action: click
+      - command: type
+        text: happypaws@example.com
+      - command: hover-text
+        text: Password
+        description: password input label
+        action: click
+      - command: type
+        text: HappyPaws2025!
+      - command: hover-text
+        text: Sign in
+        description: sign in button below the password field
+        action: click
