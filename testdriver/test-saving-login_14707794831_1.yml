@@ -1,0 +1,17 @@
+version: 4.2.29
+session: 680f774b390031a3fc2616e5
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Click "Save" in the password reminder pop-up.
+    commands:
+      - command: hover-text
+        text: Save
+        description: save button in the password reminder pop-up
+        action: click
+  - prompt: Assert that the password saves without errors.
+    commands:
+      - command: assert
+        expect: Password saved to this device
