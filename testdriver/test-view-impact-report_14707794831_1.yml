@@ -1,0 +1,25 @@
+version: 4.2.29
+session: 680f77a1390031a3fc261722
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Click on "View detailed impact report".
+    commands:
+      - command: hover-text
+        text: View detailed impact report
+        description: link under the Your Impact section
+        action: click
+  - prompt: Assert that the report page loads.
+    commands:
+      - command: assert
+        expect: the text "Impact Report" is visible on the page
+  - prompt: Verify that data is displayed without errors.
+    commands:
+      - command: assert
+        expect: the text "6 Trees Planted" is visible on the page
+      - command: assert
+        expect: the text "0.3 Tons CO₂ Offset" is visible on the page
+      - command: assert
+        expect: the text "6 Trees This Month" is visible on the page
