@@ -1,0 +1,23 @@
+version: 4.2.29
+session: 680f775ed6ee190249814d95
+steps:
+  - prompt: /run testdriver\login.yml
+    commands:
+      - command: run
+        file: testdriver\login.yml
+  - prompt: Assert recent tree gifts are listed.
+    commands:
+      - command: wait-for-text
+        text: Recent Tree Gifts
+      - command: assert
+        expect: Recent tree gifts are listed
+  - prompt: Click on a gift item for details.
+    commands:
+      - command: hover-text
+        text: bobby
+        description: gift item for bobby in the Recent Tree Gifts section
+        action: click
+  - prompt: Assert that correct details are displayed.
+    commands:
+      - command: assert
+        expect: Tree Gift Details for bobby are displayed with correct information
